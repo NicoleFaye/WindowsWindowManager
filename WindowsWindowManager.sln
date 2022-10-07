@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsWindowManager", "WindowsWindowManager.csproj", "{1D41195E-6F5D-4E26-BC89-F1433A14692D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestOutput", "..\TestOutput\TestOutput.csproj", "{90B7793E-28E2-435D-B034-1C9671ECF8EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D41195E-6F5D-4E26-BC89-F1433A14692D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D41195E-6F5D-4E26-BC89-F1433A14692D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D41195E-6F5D-4E26-BC89-F1433A14692D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D41195E-6F5D-4E26-BC89-F1433A14692D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90B7793E-28E2-435D-B034-1C9671ECF8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90B7793E-28E2-435D-B034-1C9671ECF8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90B7793E-28E2-435D-B034-1C9671ECF8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90B7793E-28E2-435D-B034-1C9671ECF8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E1D0497-A469-412F-8C4D-E3ECDFDE4929}
+	EndGlobalSection
+EndGlobal
