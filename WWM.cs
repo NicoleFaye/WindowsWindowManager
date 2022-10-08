@@ -33,6 +33,10 @@ namespace WindowsWindowManager
             public int Bottom { get; set; }
         }
 
+        /// <summary>
+        /// Prints the attributes of a rectangle to the console
+        /// </summary>
+        /// <param name="rect">Rect object to be print</param>
         public static void printRect(Rect rect)
         {
             Console.WriteLine("Left: " + rect.Left + "\tRight: " + rect.Right);
@@ -89,47 +93,105 @@ namespace WindowsWindowManager
             SHOWDEFAULT = 10
         }
 
+        /// <summary>
+        /// Maximizes Window of given Process
+        /// </summary>
+        /// <param name="proc">Process to have window be maximized</param>
+        /// <returns>Success status</returns>
         public static bool showWindowMaximized(Process proc)
         {
             return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOWMAXIMIZED);
         }
+
+        /// <summary>
+        /// Maximizes Window of gvien Handle
+        /// </summary>
+        /// <param name="handle">handle of window to be maximized</param>
+        /// <returns>Success status</returns>
         public static bool showWindowMaximized(IntPtr handle)
         {
             return ShowWindowAsync((int)handle, (int)SW.SHOWMAXIMIZED);
         }
+
+        /// <summary>
+        /// Minimizes Window of given Process
+        /// </summary>
+        /// <param name="proc">Process to have window be minimized</param>
+        /// <returns>Success status</returns>
         public static bool showWindowMinimized(Process proc)
         {
             return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.MINIMIZE);
         }
+
+        /// <summary>
+        /// Minimizes Window of gvien Handle
+        /// </summary>
+        /// <param name="handle">handle of window to be minimized</param>
+        /// <returns>Success status</returns>
         public static bool showWindowMinimized(IntPtr handle)
         {
             return ShowWindowAsync((int)handle, (int)SW.MINIMIZE);
         }
+        
+        /// <summary>
+        /// Hides Window of gvien Process 
+        /// </summary>
+        /// <param name="proc">handle of window to be hidden</param>
+        /// <returns>Success status</returns>
         public static bool hideWindow(Process proc)
         {
             return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.HIDE);
         }
-        public static bool showWindow(Process proc)
-        {
-            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOW);
-        }
-        public static bool showWindowNormal(Process proc)
-        {
-            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOWNORMAL);
-        }
-        public static bool showWindowNormal(IntPtr handle)
-        {
-            return ShowWindowAsync((int)handle, (int)SW.SHOWNORMAL);
-        }
+        
+        /// <summary>
+        /// Hides Window of gvien Handle
+        /// </summary>
+        /// <param name="handle">handle of window to be hidden</param>
+        /// <returns>Success status</returns>
         public static bool hideWindow(IntPtr handle)
         {
             return ShowWindowAsync((int)handle, (int)SW.HIDE);
         }
+        /// <summary>
+        /// Shows Window of gvien Process
+        /// </summary>
+        /// <param name="proc">Process of window to be shown</param>
+        /// <returns>Success status</returns>
+        public static bool showWindow(Process proc)
+        {
+            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOW);
+        }
+
+        /// <summary>
+        /// Shows Window of gvien Handle
+        /// </summary>
+        /// <param name="handle">Handle of window to be shown</param>
+        /// <returns>Success status</returns>
         public static bool showWindow(IntPtr handle)
         {
             return ShowWindowAsync((int)handle, (int)SW.SHOW);
         }
 
+        
+        /// <summary>
+        /// Makes a window display windowed. Not Maximized and Not Minimized.
+        /// </summary>
+        /// <param name="proc">Process of window to be displayed windowed</param>
+        /// <returns>Success Status</returns>
+        public static bool showWindowNormal(Process proc)
+        {
+            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOWNORMAL);
+        }
+
+        /// <summary>
+        /// Makes a window display windowed. Not Maximized and Not Minimized.
+        /// </summary>
+        /// <param name="handle">Handle of window to be displayed windowed</param>
+        /// <returns>Success Status</returns>
+        public static bool showWindowNormal(IntPtr handle)
+        {
+            return ShowWindowAsync((int)handle, (int)SW.SHOWNORMAL);
+        }
 
 
 
@@ -149,8 +211,8 @@ namespace WindowsWindowManager
         /// <summary>
         /// Gets the rect object from the given handle
         /// </summary>
-        /// <param name="handle"></param>
-        /// <returns></returns>
+        /// <param name="handle">Handle you want the window rect for</param>
+        /// <returns>Rect object of the process's window</returns>
         public static Rect getWindowRect(IntPtr handle)
         {
             Rect output = new Rect();
