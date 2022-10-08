@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
+    <id>WindowsWindowManager</id>
+    <version>1.0.0</version>
+    <title>WindowsWindowManager</title>
+    <authors>Nicole Demera</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <!-- <icon>icon.png</icon> -->
-    <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
-    <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>$copyright$</copyright>
-    <tags>Tag1 Tag2</tags>
+    <!--<projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>-->
+    <description>Library For Managing Windows in the Windows envirorment</description>
+    <releaseNotes>Initial Release.</releaseNotes>
+    <copyright>Copyright 2022</copyright>
+    <tags>Windows Window manager automation desktop</tags>
   </metadata>
 </package>
