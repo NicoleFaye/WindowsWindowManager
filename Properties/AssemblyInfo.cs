@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WindowsWindowManagerV1")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("WindowsWindowManager")]
+[assembly: AssemblyDescription("Library for Managing Windows in the Windows Envirorment")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WindowsWindowManagerV1")]
+[assembly: AssemblyProduct("WindowsWindowManager")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
