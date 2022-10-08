@@ -8,10 +8,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <!-- <icon>icon.png</icon> -->
-    <!--<projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>-->
-    <description>Library For Managing Windows in the Windows envirorment</description>
+    <description>Library for Managing Windows in the Windows envirorment</description>
     <releaseNotes>Initial Release.</releaseNotes>
     <copyright>Copyright 2022</copyright>
     <tags>Windows Window manager automation desktop</tags>
+	<repository type="git" url="https://github.com/NicoleFaye/WindowsWindowManager" branch="main" />
   </metadata>
 </package>
