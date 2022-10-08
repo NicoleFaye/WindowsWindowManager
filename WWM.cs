@@ -40,59 +40,6 @@ namespace WindowsWindowManager
         }
 
 
-
-        [DllImport("user32.dll")]
-		private static extern bool ShowWindowAsync(int hWnd, int nCmdShow);
-
-        // An enumeration containing all the possible SW values.
-        private enum SW : int
-        {
-             HIDE = 0,
-             SHOWNORMAL = 1,
-             SHOWMINIMIZED = 2,
-             SHOWMAXIMIZED = 3,
-             SHOWNOACTIVATE = 4,
-             SHOW = 5,
-             MINIMIZE = 6,
-             SHOWMINNOACTIVE = 7,
-             SHOWNA = 8,
-             RESTORE = 9,
-             SHOWDEFAULT = 10
-        }
-
-        public static bool showWindowMaximized(Process proc) {
-            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOWMAXIMIZED);
-        }
-        public static bool showWindowMaximized(IntPtr handle) {
-            return ShowWindowAsync((int)handle, (int)SW.SHOWMAXIMIZED);
-        }
-        public static bool showWindowMinimized(Process proc) {
-            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.MINIMIZE);
-        }
-        public static bool showWindowMinimized(IntPtr handle) {
-            return ShowWindowAsync((int)handle, (int)SW.MINIMIZE);
-        }
-        public static bool hideWindow(Process proc) {
-            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.HIDE);
-        }
-        public static bool showWindow(Process proc) {
-            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOW);
-        }
-        public static bool showWindowNormal(Process proc) {
-            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOWNORMAL);
-        }
-        public static bool showWindowNormal(IntPtr handle) {
-            return ShowWindowAsync((int)handle, (int)SW.SHOWNORMAL);
-        }
-        public static bool hideWindow(IntPtr handle) {
-            return ShowWindowAsync((int)handle, (int)SW.HIDE);
-        }
-        public static bool showWindow(IntPtr handle) {
-            return ShowWindowAsync((int)handle, (int)SW.SHOW);
-        }
-
-
-
         /// <summary>
         /// Given a handlle and a struct reference, this will save the window's rect values into the passed rect
         /// https://www.pinvoke.net/default.aspx/user32.getwindowrect
@@ -102,6 +49,89 @@ namespace WindowsWindowManager
         /// <returns>Success status</returns>
         [DllImport("user32.dll")]
         private static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
+
+        [DllImport("user32.dll")]
+        private static extern bool MoveWindow(IntPtr handle, int x, int y, int width, int height, bool redraw);
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindowAsync(int hWnd, int nCmdShow);
+
+        /// <summary>
+        ///     Retrieves a handle to the foreground window (the window with which the user is currently working). The system
+        ///     assigns a slightly higher priority to the thread that creates the foreground window than it does to other threads.
+        ///     <para>See https://msdn.microsoft.com/en-us/library/windows/desktop/ms633505%28v=vs.85%29.aspx for more information.</para>
+        /// </summary>
+        /// <returns>
+        ///     C++ ( Type: Type: HWND )<br /> The return value is a handle to the foreground window. The foreground window
+        ///     can be NULL in certain circumstances, such as when a window is losing activation.
+        /// </returns>
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetForegroundWindow();
+        public static IntPtr getForegroundWindow()
+        {
+            return GetForegroundWindow();
+        }
+
+
+        // An enumeration containing all the possible SW values.
+        private enum SW : int
+        {
+            HIDE = 0,
+            SHOWNORMAL = 1,
+            SHOWMINIMIZED = 2,
+            SHOWMAXIMIZED = 3,
+            SHOWNOACTIVATE = 4,
+            SHOW = 5,
+            MINIMIZE = 6,
+            SHOWMINNOACTIVE = 7,
+            SHOWNA = 8,
+            RESTORE = 9,
+            SHOWDEFAULT = 10
+        }
+
+        public static bool showWindowMaximized(Process proc)
+        {
+            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOWMAXIMIZED);
+        }
+        public static bool showWindowMaximized(IntPtr handle)
+        {
+            return ShowWindowAsync((int)handle, (int)SW.SHOWMAXIMIZED);
+        }
+        public static bool showWindowMinimized(Process proc)
+        {
+            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.MINIMIZE);
+        }
+        public static bool showWindowMinimized(IntPtr handle)
+        {
+            return ShowWindowAsync((int)handle, (int)SW.MINIMIZE);
+        }
+        public static bool hideWindow(Process proc)
+        {
+            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.HIDE);
+        }
+        public static bool showWindow(Process proc)
+        {
+            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOW);
+        }
+        public static bool showWindowNormal(Process proc)
+        {
+            return ShowWindowAsync((int)proc.MainWindowHandle, (int)SW.SHOWNORMAL);
+        }
+        public static bool showWindowNormal(IntPtr handle)
+        {
+            return ShowWindowAsync((int)handle, (int)SW.SHOWNORMAL);
+        }
+        public static bool hideWindow(IntPtr handle)
+        {
+            return ShowWindowAsync((int)handle, (int)SW.HIDE);
+        }
+        public static bool showWindow(IntPtr handle)
+        {
+            return ShowWindowAsync((int)handle, (int)SW.SHOW);
+        }
+
+
+
 
         /// <summary>
         /// Gets the rect object from the given process
@@ -117,7 +147,7 @@ namespace WindowsWindowManager
 
 
         /// <summary>
-        /// 
+        /// Gets the rect object from the given handle
         /// </summary>
         /// <param name="handle"></param>
         /// <returns></returns>
@@ -129,21 +159,6 @@ namespace WindowsWindowManager
         }
 
 
-
-        /// <summary>
-        ///     Retrieves a handle to the foreground window (the window with which the user is currently working). The system
-        ///     assigns a slightly higher priority to the thread that creates the foreground window than it does to other threads.
-        ///     <para>See https://msdn.microsoft.com/en-us/library/windows/desktop/ms633505%28v=vs.85%29.aspx for more information.</para>
-        /// </summary>
-        /// <returns>
-        ///     C++ ( Type: Type: HWND )<br /> The return value is a handle to the foreground window. The foreground window
-        ///     can be NULL in certain circumstances, such as when a window is losing activation.
-        /// </returns>
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetForegroundWindow();
-        public static IntPtr getForegroundWindow() {
-            return GetForegroundWindow();
-        }
 
 
 
@@ -171,37 +186,56 @@ namespace WindowsWindowManager
 
 
 
-        [DllImport("user32.dll")]
-        private static extern bool MoveWindow(IntPtr handle, int x, int y, int width, int height, bool redraw);
 
         /// <summary>
-        /// 
+        /// Move the window of a given process to the given coordinates.
+        /// The coordinates represent the top left coordinate of the window.
         /// </summary>
-        /// <param name="proc"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="proc">Process object of the window intended to be moved</param>
+        /// <param name="x">X coordinate of the top left corner of the window</param>
+        /// <param name="y">Y coordinate of the top left corner of the window</param>
         public static void moveWindowTo(Process proc, int x, int y)
         {
             Rect windowRect = getWindowRect(proc);
             MoveWindow(proc.MainWindowHandle, x, y, windowRect.Right - windowRect.Left, windowRect.Bottom - windowRect.Top, true);
         }
+
         /// <summary>
-        /// 
+        /// Move the window of a given handle to the given coordinates.
+        /// The coordinates represent the top left coordinate of the window.
         /// </summary>
-        /// <param name="handle"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="handle">Handle of the window intended to be moved</param>
+        /// <param name="x">X coordinate of the top left corner of the window</param>
+        /// <param name="y">Y coordinate of the top left corner of the window</param>
         public static void moveWindowTo(IntPtr handle, int x, int y)
         {
             Rect windowRect = getWindowRect(handle);
             MoveWindow(handle, x, y, windowRect.Right - windowRect.Left, windowRect.Bottom - windowRect.Top, true);
         }
 
-        public static void resizeWindow(Process proc ,int height,int width) { 
-            //TODO
+        /// <summary>
+        /// Resize window of the given handle by given height and width.
+        /// </summary>
+        /// <param name="proc">Handle of the window to be resized</param>
+        /// <param name="height">New window height</param>
+        /// <param name="width">New window width</param>
+        public static void resizeWindow(Process proc, int height, int width)
+        {
+            resizeWindow(proc.MainWindowHandle, height, width);
         }
-        public static void resizeWindow(IntPtr handle ,int height,int width) { 
-            //TODO
+
+        /// <summary>
+        /// Resize window of the given handle by given height and width.
+        /// </summary>
+        /// <param name="handle">Handle of the window to be resized</param>
+        /// <param name="height">New window height</param>
+        /// <param name="width">New window width</param>
+        public static void resizeWindow(IntPtr handle, int height, int width)
+        {
+            if (height < 0) height = 0;
+            if (width < 0) width = 0;
+            Rect windowRect = getWindowRect(handle);
+            MoveWindow(handle, windowRect.Left, windowRect.Top, height, width, true);
         }
 
     }
