@@ -12,3 +12,28 @@ This is just a personal project for more intuitive methods than pure pinvoke
 - Minimizing/maximizing windows based off process or handle
 - Move windows based on x y coordinates
 - Hiding and Showing windows
+
+
+
+# Example Usage
+
+(Will eventually have real examples in another repo)
+
+
+```
+Process paintProcess = Process.Start(PaintPath);
+
+WWM.waitForWindow(paintProcess);
+
+WWM.showWindowMaximized(paintProcess);
+
+WWM.showWindowMinimized(paintProcess);
+
+WWM.showWindowMinimized(paintProcess);
+
+WWM.showWindowNormal(paintProcess);
+
+WWM.moveWindowTo(paintProcess,200,200);
+
+WWM.printRect(WWM.getWindowRect(paintProcess));
+```
