@@ -32,8 +32,6 @@ WWM.showWindowMaximized(paintProcess);
 
 WWM.showWindowMinimized(paintProcess);
 
-WWM.showWindowMinimized(paintProcess);
-
 WWM.showWindowNormal(paintProcess);
 
 WWM.moveWindowTo(paintProcess,200,200);
