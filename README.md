@@ -1,5 +1,5 @@
 # WindowsWindowManager
-Library For Managing Windows in the Windows envirorment
+Library For Managing windows in the Windows envirorment
 
 This is just a personal project for more intuitive methods than pure pinvoke
 
