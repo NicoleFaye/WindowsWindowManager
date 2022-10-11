@@ -34,4 +34,5 @@ WWM.showWindowNormal(paintProcess);
 WWM.moveWindowTo(paintProcess,200,200);
 
 WWM.printRect(WWM.getWindowRect(paintProcess));
+
 ```
