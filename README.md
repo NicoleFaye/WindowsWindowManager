@@ -3,6 +3,8 @@ Library For Managing windows in the Windows envirorment
 
 This is just a personal project for more intuitive methods than pure pinvoke
 
+# [Nuget Package](https://www.nuget.org/packages/WindowsWindowManager/)
+
 # Current Status
 
 - Solution has another project listed not in the repo I use for testing.
